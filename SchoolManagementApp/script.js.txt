@@ -1,0 +1,23 @@
+let students = [];
+
+function addStudent() {
+    let name = document.getElementById("studentName").value;
+    let studentClass = document.getElementById("studentClass").value;
+
+    if (name && studentClass) {
+        students.push({ name, class: studentClass });
+        displayStudents();
+    } else {
+        alert("Enter both name and class!");
+    }
+}
+
+function displayStudents() {
+    let list = document.getElementById("studentList");
+    list.innerHTML = ""; 
+
+    students.forEach(student => {
+        let item = `<li>${student.name} - Class ${student.class}</li>`;
+        list.innerHTML += item;
+    });
+}
